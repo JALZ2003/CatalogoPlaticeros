@@ -40,18 +40,18 @@ function updateTotal(amount, sign) {
 }
 
 function clickXtoRemoveItem(item, item_price, item_img) {
-    item_img.addEventListener('click', function() {
+    item_img.addEventListener('click', function () {
         updateTotal(item_price, "-");
         console.log("item.id: " + item.id);
         const item_id = shoppingList.findIndex((DBitem) => DBitem.id == item.id);
-        if (item_id  >= 0)
+        if (item_id >= 0)
             shoppingList.splice(item_id, 1);
         itemCounter.innerText = shoppingList.length;
         myOrderContent.removeChild(item);
     })
 }
 
-function toggleMenus(menu, close1, close2, array, close3=false, NPC=false) {
+function toggleMenus(menu, close1, close2, array, close3 = false, NPC = false) {
     menu.classList.toggle('menu-toggle');
     orderDetail.style.top = navbar.clientHeight + "px";
     if (!close1.classList.contains('menu-toggle'))
@@ -71,7 +71,7 @@ function toggleMenus(menu, close1, close2, array, close3=false, NPC=false) {
     }
 }
 
-function createNewItem(NPC_price, NPC_name, NPC_img, pD=false) {
+function createNewItem(NPC_price, NPC_name, NPC_img, pD = false) {
     updateTotal(NPC_price, "+");
     const newProduct = document.createElement('div');
     newProduct.setAttribute("class", "shopping-cart");
@@ -93,26 +93,26 @@ function createNewItem(NPC_price, NPC_name, NPC_img, pD=false) {
     } else {
         newProduct.setAttribute("id", NPC_img.id);
     }
-    
+
     console.log(itemCounter.innerText);
     console.log(shoppingList.length);
     itemCounter.innerText = shoppingList.length;
-        const newProductFig = document.createElement('figure');
-            const newProductFigImg = document.createElement('img');
-            newProductFigImg.setAttribute('src', NPC_img.src);
-            newProductFigImg.setAttribute('alt', NPC_img.alt);
-        const newProductpitem = document.createElement('p');
-        newProductpitem.innerText = NPC_name;
-        const newProductprice = document.createElement('p');
-        newProductprice.innerText = NPC_price;
-        const newProductImgClose = document.createElement('img');
-        newProductImgClose.setAttribute('src', "./icons/icon_close.png");
-        newProductImgClose.setAttribute('alt', "close");
-        clickXtoRemoveItem(newProduct, newProductprice.innerText, newProductImgClose);            
+    const newProductFig = document.createElement('figure');
+    const newProductFigImg = document.createElement('img');
+    newProductFigImg.setAttribute('src', NPC_img.src);
+    newProductFigImg.setAttribute('alt', NPC_img.alt);
+    const newProductpitem = document.createElement('p');
+    newProductpitem.innerText = NPC_name;
+    const newProductprice = document.createElement('p');
+    newProductprice.innerText = NPC_price;
+    const newProductImgClose = document.createElement('img');
+    newProductImgClose.setAttribute('src', "./icons/icon_close.png");
+    newProductImgClose.setAttribute('alt', "close");
+    clickXtoRemoveItem(newProduct, newProductprice.innerText, newProductImgClose);
 
-        myOrderContent.appendChild(newProduct);
-        newProduct.append(newProductFig, newProductpitem, newProductprice, newProductImgClose);
-        newProductFig.appendChild(newProductFigImg);
+    myOrderContent.appendChild(newProduct);
+    newProduct.append(newProductFig, newProductpitem, newProductprice, newProductImgClose);
+    newProductFig.appendChild(newProductFigImg);
 
     // <div class="shopping-cart">
     //     <figure>
@@ -267,99 +267,99 @@ for (product of productList) {
     //Method 2: Pros: Safe and hackproof, better suited for bookworms, cons: slow to write;
     const newProductCard = document.createElement('div');
     newProductCard.classList.add('product-card');
-        const newProductCard_img = document.createElement('img');
-        newProductCard_img.src = product.img;
-        newProductCard_img.alt = product.classname;
-        newProductCard_img.title = product.fullname;
-        newProductCard_img.desc = product.description;
-        newProductCard_img.setAttribute('class', 'product-img');
-        newProductCard_img.addEventListener('click', function() {
-            responsiveMenuWidth(productDetail, "start");
-            toggleMenus(productDetail, mobileMenu, desktopMenu, productDetailAll, orderDetail, newProductCard_img);
-            responsiveMenuWidth(productDetail, "end");
+    const newProductCard_img = document.createElement('img');
+    newProductCard_img.src = product.img;
+    newProductCard_img.alt = product.classname;
+    newProductCard_img.title = product.fullname;
+    newProductCard_img.desc = product.description;
+    newProductCard_img.setAttribute('class', 'product-img');
+    newProductCard_img.addEventListener('click', function () {
+        responsiveMenuWidth(productDetail, "start");
+        toggleMenus(productDetail, mobileMenu, desktopMenu, productDetailAll, orderDetail, newProductCard_img);
+        responsiveMenuWidth(productDetail, "end");
 
-/* <aside class="product-detail menu-toggle">
-    <div class="product-detail-close">
-      <img src="./icons/icon_close.png" alt="close">
-    </div>
-    <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
-    <div class="product-info">
-      <p>$35,00</p>
-      <p>Bike</p>
-      <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
-      <button class="primary-button add-to-cart-button">
-        <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
-        Add to cart
-      </button>
-    </div>
-  </aside> */
+        /* <aside class="product-detail menu-toggle">
+            <div class="product-detail-close">
+              <img src="./icons/icon_close.png" alt="close">
+            </div>
+            <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+            <div class="product-info">
+              <p>$35,00</p>
+              <p>Bike</p>
+              <p>With its practical position, this bike also fulfills a decorative function, add your hall or workspace.</p>
+              <button class="primary-button add-to-cart-button">
+                <img src="./icons/bt_add_to_cart.svg" alt="add to cart">
+                Add to cart
+              </button>
+            </div>
+          </aside> */
 
-        })
-        const newProductCard_info = document.createElement('div');
-        newProductCard_info.classList.add('product-info');
-        const newProductCard_info_div = document.createElement('div');
-            const newProductCard_info_div_price = document.createElement('p');
-            newProductCard_info_div_price.innerText = product.price.toFixed(2) + "$";
-            const newProductCard_info_div_pitem = document.createElement('p');
-            newProductCard_info_div_pitem.innerText = product.fullname;
-        const newProductCard_info_figure = document.createElement('figure');
-            const newProductCard_info_figure_img = document.createElement('img');
-            newProductCard_info_figure_img.src = "./icons/bt_add_to_cart.svg";
-            newProductCard_info_figure_img.alt = "Add to Cart";
-            console.log(newProductCard_info_figure_img.alt);
-            function forwardNewItems() {
-                console.log(product);
-                createNewItem(newProductCard_info_div_price.innerText, newProductCard_info_div_pitem.innerText, newProductCard_img, product)
-                responsiveMenuWidth(orderDetail, "end");
-            }
-            newProductCard_info_figure_img.addEventListener('click', forwardNewItems)
-/* Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. */
+    })
+    const newProductCard_info = document.createElement('div');
+    newProductCard_info.classList.add('product-info');
+    const newProductCard_info_div = document.createElement('div');
+    const newProductCard_info_div_price = document.createElement('p');
+    newProductCard_info_div_price.innerText = product.price.toFixed(2) + "$";
+    const newProductCard_info_div_pitem = document.createElement('p');
+    newProductCard_info_div_pitem.innerText = product.fullname;
+    const newProductCard_info_figure = document.createElement('figure');
+    const newProductCard_info_figure_img = document.createElement('img');
+    newProductCard_info_figure_img.src = "./icons/bt_add_to_cart.svg";
+    newProductCard_info_figure_img.alt = "Add to Cart";
+    console.log(newProductCard_info_figure_img.alt);
+    function forwardNewItems() {
+        console.log(product);
+        createNewItem(newProductCard_info_div_price.innerText, newProductCard_info_div_pitem.innerText, newProductCard_img, product)
+        responsiveMenuWidth(orderDetail, "end");
+    }
+    newProductCard_info_figure_img.addEventListener('click', forwardNewItems)
+    /* Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. */
     cardsContainer.appendChild(newProductCard);
-        newProductCard.append(newProductCard_img, newProductCard_info);
-            newProductCard_info.appendChild(newProductCard_info_div);
-                newProductCard_info_div.append(newProductCard_info_div_price, newProductCard_info_div_pitem);
-            newProductCard_info.appendChild(newProductCard_info_figure);
-                newProductCard_info_figure.appendChild(newProductCard_info_figure_img);
+    newProductCard.append(newProductCard_img, newProductCard_info);
+    newProductCard_info.appendChild(newProductCard_info_div);
+    newProductCard_info_div.append(newProductCard_info_div_price, newProductCard_info_div_pitem);
+    newProductCard_info.appendChild(newProductCard_info_figure);
+    newProductCard_info_figure.appendChild(newProductCard_info_figure_img);
 
     const productDetail = document.createElement('aside');
     productDetail.setAttribute('class', "product-detail menu-toggle");
     productDetail.classList.add(newProductCard_img.alt);
     productDetail.setAttribute('id', newProductCard_img.alt);
     productDetail.style.top = navbar.clientHeight + "px";
-        const productDetail_DivX = document.createElement('div');
-        productDetail_DivX.setAttribute('class', "product-detail-close");
-        productDetail_DivX.addEventListener('click', function() {
-            responsiveMenuWidth(productDetail, "start");
-            if(!productDetail.classList.contains('menu-toggle'))
-                productDetail.classList.add('menu-toggle');
-        });
-            const productDetail_DivX_ImgX = document.createElement('img');
-            productDetail_DivX_ImgX.src = "./icons/icon_close.png";
-            productDetail_DivX_ImgX.alt = "close";
-        const productDetail_Img = document.createElement('img');
-        productDetail_Img.src = newProductCard_img.src;
-        productDetail_Img.alt = newProductCard_img.alt;
-        const productDetail_Info = document.createElement('div');
-        productDetail_Info.setAttribute('class', "product-info");
-            const productDetail_Info_price = document.createElement('p');
-            productDetail_Info_price.innerText = newProductCard_info_div_price.innerText;
-            const productDetail_Info_pitem = document.createElement('p');
-            productDetail_Info_pitem.innerText = newProductCard_info_div_pitem.innerText;
-            const productDetail_Info_ptext = document.createElement('p');
-            productDetail_Info_ptext.innerText = product.description;
-            const productDetail_Info_Btn = document.createElement('button');
-            productDetail_Info_Btn.addEventListener("click", forwardNewItems)
-            productDetail_Info_Btn.innerText = "Add to cart";
-            productDetail_Info_Btn.setAttribute('class', "primary-button add-to-cart-button");
-                const productDetail_Info_Btn_Img = document.createElement('img');
-                productDetail_Info_Btn_Img.src = "./icons/bt_add_to_cart.svg";
-                productDetail_Info_Btn_Img.alt = "add to cart";
+    const productDetail_DivX = document.createElement('div');
+    productDetail_DivX.setAttribute('class', "product-detail-close");
+    productDetail_DivX.addEventListener('click', function () {
+        responsiveMenuWidth(productDetail, "start");
+        if (!productDetail.classList.contains('menu-toggle'))
+            productDetail.classList.add('menu-toggle');
+    });
+    const productDetail_DivX_ImgX = document.createElement('img');
+    productDetail_DivX_ImgX.src = "./icons/icon_close.png";
+    productDetail_DivX_ImgX.alt = "close";
+    const productDetail_Img = document.createElement('img');
+    productDetail_Img.src = newProductCard_img.src;
+    productDetail_Img.alt = newProductCard_img.alt;
+    const productDetail_Info = document.createElement('div');
+    productDetail_Info.setAttribute('class', "product-info");
+    const productDetail_Info_price = document.createElement('p');
+    productDetail_Info_price.innerText = newProductCard_info_div_price.innerText;
+    const productDetail_Info_pitem = document.createElement('p');
+    productDetail_Info_pitem.innerText = newProductCard_info_div_pitem.innerText;
+    const productDetail_Info_ptext = document.createElement('p');
+    productDetail_Info_ptext.innerText = product.description;
+    const productDetail_Info_Btn = document.createElement('button');
+    productDetail_Info_Btn.addEventListener("click", forwardNewItems)
+    productDetail_Info_Btn.innerText = "Add to cart";
+    productDetail_Info_Btn.setAttribute('class', "primary-button add-to-cart-button");
+    const productDetail_Info_Btn_Img = document.createElement('img');
+    productDetail_Info_Btn_Img.src = "./icons/bt_add_to_cart.svg";
+    productDetail_Info_Btn_Img.alt = "add to cart";
 
     document.body.appendChild(productDetail);
-        productDetail.append(productDetail_DivX, productDetail_Img, productDetail_Info);
-            productDetail_DivX.appendChild(productDetail_DivX_ImgX);
-            productDetail_Info.append(productDetail_Info_price, productDetail_Info_pitem, productDetail_Info_ptext, productDetail_Info_Btn);
-            productDetail_Info_Btn.appendChild(productDetail_Info_Btn_Img);
+    productDetail.append(productDetail_DivX, productDetail_Img, productDetail_Info);
+    productDetail_DivX.appendChild(productDetail_DivX_ImgX);
+    productDetail_Info.append(productDetail_Info_price, productDetail_Info_pitem, productDetail_Info_ptext, productDetail_Info_Btn);
+    productDetail_Info_Btn.appendChild(productDetail_Info_Btn_Img);
 }
 const productDetailAll = document.querySelectorAll('.product-detail');
 
@@ -382,42 +382,42 @@ for (demo of shoppingList) {
     //         <img src="./icons/icon_close.png" alt="close">
     //       </div>
     //       `
-    //createNewItem() does all this
-    // const divShoppingCart = document.createElement('div');
-    // divShoppingCart.classList.add('shopping-cart');
-    // divShoppingCart.id = product.id;
-    // const divShoppingCart_figure = document.createElement('figure');
-    //     const divShoppingCart_figure_img = document.createElement('img');
-    //     divShoppingCart_figure_img.src = product.img;
-    //     divShoppingCart_figure_img.alt = product.classname
-    // const divShoppingCart_pitem = document.createElement('p');
-    // divShoppingCart_pitem.innerText = product.fullname;
-    // const divShoppingCart_price = document.createElement('p');
-    // divShoppingCart_price.innerText = product.price;
-    // const itemPrice = parseFloat(divShoppingCart_price.innerText);
-    // updateTotal(itemPrice, "+");
-    // const divShoppingCart_img = document.createElement('img');
-    // divShoppingCart_img.src = "./icons/icon_close.png";
-    // divShoppingCart_img.alt = "close";
-    // divShoppingCart_img.style.cursor = "pointer";
-    // clickXtoRemoveItem(divShoppingCart, divShoppingCart_price.innerText, divShoppingCart_img);
-/* Con Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. */
-    // myOrderContent.appendChild(divShoppingCart);
-    //     divShoppingCart.appendChild(divShoppingCart_figure);
-    //         divShoppingCart_figure.appendChild(divShoppingCart_figure_img);
-    //     divShoppingCart.append(divShoppingCart_pitem, divShoppingCart_price, divShoppingCart_img);
-}
+//     createNewItem() does all this
+//     const divShoppingCart = document.createElement('div');
+//     divShoppingCart.classList.add('shopping-cart');
+//     divShoppingCart.id = product.id;
+//     const divShoppingCart_figure = document.createElement('figure');
+//     const divShoppingCart_figure_img = document.createElement('img');
+//     divShoppingCart_figure_img.src = product.img;
+//     divShoppingCart_figure_img.alt = product.classname
+//     const divShoppingCart_pitem = document.createElement('p');
+//     divShoppingCart_pitem.innerText = product.fullname;
+//     const divShoppingCart_price = document.createElement('p');
+//     divShoppingCart_price.innerText = product.price;
+//     const itemPrice = parseFloat(divShoppingCart_price.innerText);
+//     updateTotal(itemPrice, "+");
+//     const divShoppingCart_img = document.createElement('img');
+//     divShoppingCart_img.src = "./icons/icon_close.png";
+//     divShoppingCart_img.alt = "close";
+//     divShoppingCart_img.style.cursor = "pointer";
+//     clickXtoRemoveItem(divShoppingCart, divShoppingCart_price.innerText, divShoppingCart_img);
+//     const Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. * /
+//     myOrderContent.appendChild(divShoppingCart);
+//     divShoppingCart.appendChild(divShoppingCart_figure);
+//     divShoppingCart_figure.appendChild(divShoppingCart_figure_img);
+//     divShoppingCart.append(divShoppingCart_pitem, divShoppingCart_price, divShoppingCart_img);
+// }
 
-hamMenu.addEventListener('click', function() {
+hamMenu.addEventListener('click', function () {
     toggleMenus(mobileMenu, desktopMenu, orderDetail, productDetailAll)
 });
 
-navbarEmailText.addEventListener('click', function() {
+navbarEmailText.addEventListener('click', function () {
     if (window.innerWidth > 640) {
         if (orderDetail.clientWidth > 0) {
             console.log("oD cW1: " + orderDetail.clientWidth);
             if (orderDetail.classList.contains('menu-toggle'))
-                mainContainer.style.marginRight = orderDetail.clientWidth  + "px";
+                mainContainer.style.marginRight = orderDetail.clientWidth + "px";
             else
                 mainContainer.style.marginRight = 0;
         }
@@ -425,13 +425,13 @@ navbarEmailText.addEventListener('click', function() {
     toggleMenus(desktopMenu, mobileMenu, orderDetail, productDetailAll)
 });
 
-navbarShoppingCart.addEventListener('click', function() {
+navbarShoppingCart.addEventListener('click', function () {
     responsiveMenuWidth(orderDetail, "start");
     toggleMenus(orderDetail, desktopMenu, mobileMenu, productDetailAll)
     responsiveMenuWidth(orderDetail, "end");
 });
 
-flechita.addEventListener('click', function() {
+flechita.addEventListener('click', function () {
     responsiveMenuWidth(orderDetail, "start");
     toggleMenus(orderDetail, desktopMenu, mobileMenu, productDetailAll)
 });
