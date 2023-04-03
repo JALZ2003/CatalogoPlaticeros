@@ -447,7 +447,7 @@ footer.top img {
   height: 100px;
 }
 
-section {
+section.footer {
   position: fixed;
   left: 0;
   bottom: 12px;

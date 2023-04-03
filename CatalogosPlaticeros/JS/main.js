@@ -1,3 +1,118 @@
+
+let DataPlaticeros = [
+    {
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
+    },
+
+    {
+        Img: 17,
+        Name: "Platycerium Superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
+    },
+
+    {
+        Img : 33,
+        Name : "Platycerium Wallichii",
+        Price : 130.000,
+        Details : "Matera No. 10",
+        Available : 5,
+    },
+
+    {
+        Img : 32,
+        Name : "Platycerium Ridleyi",
+        Price : 130.000,
+        Details : "Matera No. 10",
+        Available : 10
+    },
+
+    {
+        Img : 31,
+        Name : "Platycerium Madagascariense",
+        Price : 130.000,
+        Details : "Matera No. 10",
+        Available : 5,
+    },
+
+    {
+        Img : 30,
+        Name : "Platycerium Grande",
+        Price : 130.000,
+        Details : "Matera No. 10",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+
+    {
+        Img : 17,
+        Name : "Platycerium superbum",
+        Price : 150.000,
+        Details : "Canasta de alambre 30 cm, altura 60 cm",
+        Available : 15,
+    },
+];
+
 const mobileMenu = document.querySelector('.mobile-menu');
 const hamMenu = document.querySelector('.ham-menu-container');
 const navbar = document.querySelector('.navbar');
@@ -382,31 +497,31 @@ for (demo of shoppingList) {
     //         <img src="./icons/icon_close.png" alt="close">
     //       </div>
     //       `
-//     createNewItem() does all this
-//     const divShoppingCart = document.createElement('div');
-//     divShoppingCart.classList.add('shopping-cart');
-//     divShoppingCart.id = product.id;
-//     const divShoppingCart_figure = document.createElement('figure');
-//     const divShoppingCart_figure_img = document.createElement('img');
-//     divShoppingCart_figure_img.src = product.img;
-//     divShoppingCart_figure_img.alt = product.classname
-//     const divShoppingCart_pitem = document.createElement('p');
-//     divShoppingCart_pitem.innerText = product.fullname;
-//     const divShoppingCart_price = document.createElement('p');
-//     divShoppingCart_price.innerText = product.price;
-//     const itemPrice = parseFloat(divShoppingCart_price.innerText);
-//     updateTotal(itemPrice, "+");
-//     const divShoppingCart_img = document.createElement('img');
-//     divShoppingCart_img.src = "./icons/icon_close.png";
-//     divShoppingCart_img.alt = "close";
-//     divShoppingCart_img.style.cursor = "pointer";
-//     clickXtoRemoveItem(divShoppingCart, divShoppingCart_price.innerText, divShoppingCart_img);
-//     const Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. * /
-//     myOrderContent.appendChild(divShoppingCart);
-//     divShoppingCart.appendChild(divShoppingCart_figure);
-//     divShoppingCart_figure.appendChild(divShoppingCart_figure_img);
-//     divShoppingCart.append(divShoppingCart_pitem, divShoppingCart_price, divShoppingCart_img);
-// }
+    //     createNewItem() does all this
+    //     const divShoppingCart = document.createElement('div');
+    //     divShoppingCart.classList.add('shopping-cart');
+    //     divShoppingCart.id = product.id;
+    //     const divShoppingCart_figure = document.createElement('figure');
+    //     const divShoppingCart_figure_img = document.createElement('img');
+    //     divShoppingCart_figure_img.src = product.img;
+    //     divShoppingCart_figure_img.alt = product.classname
+    //     const divShoppingCart_pitem = document.createElement('p');
+    //     divShoppingCart_pitem.innerText = product.fullname;
+    //     const divShoppingCart_price = document.createElement('p');
+    //     divShoppingCart_price.innerText = product.price;
+    //     const itemPrice = parseFloat(divShoppingCart_price.innerText);
+    //     updateTotal(itemPrice, "+");
+    //     const divShoppingCart_img = document.createElement('img');
+    //     divShoppingCart_img.src = "./icons/icon_close.png";
+    //     divShoppingCart_img.alt = "close";
+    //     divShoppingCart_img.style.cursor = "pointer";
+    //     clickXtoRemoveItem(divShoppingCart, divShoppingCart_price.innerText, divShoppingCart_img);
+    //     const Element.append() podemos agregar varios nodos y texto mientras que con Element.appendChild() solo podemos agregar un nodo. * /
+    //     myOrderContent.appendChild(divShoppingCart);
+    //     divShoppingCart.appendChild(divShoppingCart_figure);
+    //     divShoppingCart_figure.appendChild(divShoppingCart_figure_img);
+    //     divShoppingCart.append(divShoppingCart_pitem, divShoppingCart_price, divShoppingCart_img);
+}
 
 hamMenu.addEventListener('click', function () {
     toggleMenus(mobileMenu, desktopMenu, orderDetail, productDetailAll)
