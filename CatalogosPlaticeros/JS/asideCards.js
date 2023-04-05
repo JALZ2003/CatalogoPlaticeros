@@ -3,7 +3,7 @@ const imgAside = "https://images.pexels.com/photos/276517/pexels-photo-276517.jp
 const price = 4;
 const productName = "lorem ";
 const description = " lorem";
-let productDetail = '<aside id="productDetail" class="active">\n' +
+let productDetail = '<aside id="productDetail" class="inactive">\n' +
     '<div class="product-detail-close">\n' +
     '<img src="./icons/icon_close.png" alt="close">\n' +
     '</div>\n' +
