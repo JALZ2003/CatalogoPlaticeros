@@ -19,117 +19,117 @@ let DataPlaticeros = [
     },
 
     {
-        Img : 33,
-        Name : "Platycerium Wallichii",
-        Price : 130.000,
-        Details : "Matera No. 10",
-        Available : 5,
+        Img: 33,
+        Name: "Platycerium Wallichii",
+        Price: 130.000,
+        Details: "Matera No. 10",
+        Available: 5,
         category: "Plants",
     },
 
     {
-        Img : 32,
-        Name : "Platycerium Ridleyi",
-        Price : 130.000,
-        Details : "Matera No. 10",
-        Available : 10,
+        Img: 32,
+        Name: "Platycerium Ridleyi",
+        Price: 130.000,
+        Details: "Matera No. 10",
+        Available: 10,
         category: "Plants",
     },
 
     {
-        Img : 31,
-        Name : "Platycerium Madagascariense",
-        Price : 130.000,
-        Details : "Matera No. 10",
-        Available : 5,
+        Img: 31,
+        Name: "Platycerium Madagascariense",
+        Price: 130.000,
+        Details: "Matera No. 10",
+        Available: 5,
         category: "Plants",
     },
 
     {
-        Img : 30,
-        Name : "Platycerium Grande",
-        Price : 130.000,
-        Details : "Matera No. 10",
-        Available : 15,
+        Img: 30,
+        Name: "Platycerium Grande",
+        Price: 130.000,
+        Details: "Matera No. 10",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 
     {
-        Img : 17,
-        Name : "Platycerium superbum",
-        Price : 150.000,
-        Details : "Canasta de alambre 30 cm, altura 60 cm",
-        Available : 15,
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
         category: "Plants",
     },
 ];
 
 // const mobileMenu = document.querySelector('.mobile-menu');
 // const hamMenu = document.querySelector('.ham-menu-container');
-// const navbar = document.querySelector('.navbar');
+// // const navbar = document.querySelector('.navbar');
 // //const navbarHeight = navbar.clientHeight;
 // //clientXY
 // //offsetXY not a selectable object
@@ -146,7 +146,7 @@ let DataPlaticeros = [
 // const myOrderContent = document.querySelector('.my-order-content');
 // const shoppingCartItem = document.querySelector('.shopping-cart')
 // const totalToPay = document.querySelector('.total-to-pay');
-// // const productDetail = document.querySelector('.product-detail'); //aside for details on products in the main section
+// const productDetail = document.querySelector('.product-detail'); //aside for details on products in the main section
 
 // let productList = [];
 // let shoppingList = [];
@@ -155,8 +155,8 @@ let DataPlaticeros = [
 // function updateTotal(amount, sign) {
 //     if (sign == "+") {
 //         total += parseFloat(amount);
-//         if (parseInt(total) != total)
-//             totalToPay.innerText = total.toFixed(2) + "$";
+//         if (parseInt(total) != total){{}
+//             // totalToPay.innerText = total.toFixed(2) + "$";
 //         else
 //             totalToPay.innerText = total + "$";
 //     } else if (sign == "-") {
@@ -423,8 +423,9 @@ let DataPlaticeros = [
 //             </div>
 //           </aside> */
 
-//     //})
-    
+//         //})
+//     });
+
 //     const newProductCard_info = document.createElement('div');
 //     newProductCard_info.classList.add('product-info');
 //     const newProductCard_info_div = document.createElement('div');
@@ -455,7 +456,7 @@ let DataPlaticeros = [
 //     productDetail.setAttribute('class', "product-detail menu-toggle");
 //     productDetail.classList.add(newProductCard_img.alt);
 //     productDetail.setAttribute('id', newProductCard_img.alt);
-//     productDetail.style.top = navbar.clientHeight + "px";
+//     // productDetail.style.top = navbar.clientHeight + "px";
 //     const productDetail_DivX = document.createElement('div');
 //     productDetail_DivX.setAttribute('class', "product-detail-close");
 //     productDetail_DivX.addEventListener('click', function () {
@@ -491,6 +492,7 @@ let DataPlaticeros = [
 //     productDetail_Info.append(productDetail_Info_price, productDetail_Info_pitem, productDetail_Info_ptext, productDetail_Info_Btn);
 //     productDetail_Info_Btn.appendChild(productDetail_Info_Btn_Img);
 // }
+
 // const productDetailAll = document.querySelectorAll('.product-detail');
 
 // for (demo of shoppingList) {
@@ -566,4 +568,4 @@ let DataPlaticeros = [
 //     toggleMenus(orderDetail, desktopMenu, mobileMenu, productDetailAll)
 // });
 
-// //flags
+// flags
