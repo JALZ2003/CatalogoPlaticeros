@@ -448,12 +448,12 @@ footer.top img {
 }
 
 section.footer {
-  position: fixed;
+ /* position: fixed;*/
   left: 0;
-  bottom: 12px;
+  bottom: 0px;
   width: 100%;
   background: #172940;
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 footer {

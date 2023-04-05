@@ -9,7 +9,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" media="screen" href="../ejerciciosBaresViernes/main.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/home.css">
 
     <!-- CSS GENERAL -->
     <link rel="stylesheet" href="../assets/css/general.css">
@@ -21,7 +21,8 @@
         <img src="../assets/icons/icon_menu.svg" alt="menu" class="menu">
 
         <div class="navbar-left">
-            <img src="../assets/icons/logo_yard_sale.svg" alt="logo" class="logo">
+            <img src="../assets/images/Logo - Platiceros/Logo platiceros - imagotipo - negro.png" alt="logo"
+                class="logo">
 
             <ul>
                 <li>
@@ -115,6 +116,55 @@
             </ul>
         </div>
     </nav>
+    /////
+
+    <h1>Bandera por Ubicación</h1>
+    <img id="flag" src="https://flagcdn.com/w320/blank.png" alt="Bandera" />
+    <script>
+        function getFlagUrl(lat, lng) {
+            const url = `https://flagcdn.com/w320/${getCountryCode(lat, lng).toLowerCase()}.png`;
+            return url;
+        }
+
+        function getCountryCode(lat, lng) {
+            // Llamada a servicio de terceros para obtener el código de país
+            const url = `https://nominatim.org/search.php?q=${lat},${lng}&format=jsonv2`;
+            return fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    if (data.length > 0) {
+                        return data[0].address.country_code;
+                    }
+                });
+        }
+
+
+        function showFlag(lat, lng) {
+            const img = document.getElementById('flag');
+            const url = getFlagUrl(lat, lng);
+            img.src = url;
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    function (position) {
+                        showFlag(position.coords.latitude, position.coords.longitude);
+                    },
+                    function () {
+                        alert('No se pudo obtener la ubicación del usuario');
+                    }
+                );
+            } else {
+                alert('La geolocalización no está disponible en este navegador');
+            }
+        }
+
+        getLocation();
+        console.log(getLocation());
+    </script>
+
+    //////
 
     <section class="footer">
         <footer class="top">
