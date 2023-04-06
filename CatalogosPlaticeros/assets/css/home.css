@@ -1,39 +1,53 @@
-.body {
-width: 100%;
-align-items: center;
-display: flex;
-flex-direction: column;
-display: flex;
-position: relative;
-justify-content: space-between;
+* {
+    margin: 0px;
+    padding: 0px;
 }
-.imgBody {
-    width: 100%;
-}
-.title {
+.contenedor {
+    max-width: 960px;
+    height: 400px;
     display: flex;
-    position: absolute;
-    padding: 15%;
+    justify-content: center;
     align-items: center;
-    background-color: aqua;
 }
-.text {
-    display:flex;
-    position: absolute;
-    padding: 20%;
-    background-color: blue;
-}
-.title2 {
+.block {
+    height: 500px;
+    background-color: white;
     display: flex;
-    position: ;
-    padding-top: 40%;
-    padding-left: 5%;
-    background-color: brown;
+    justify-content: center;
+    align-items: center;
 }
-.text2 {
-    display: flex;
-    justify-content: space-between;
+.block h1 {
+    margin: 0px;
+    text-align: center;
+    font-size: 80px;
+    color: white;
+    line-height: 600px;
 }
-section.footer {
-    position: fixed;
+
+.block h2 {
+    text-align: center;
+    font-size: 50px;
+    color: black;
+}
+
+.block p {
+    font-size: 30px;
+    text-align: justify;
+    color: black;
+}
+.block.parallax {
+    height: 600px;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.parallax.cover-1 {
+    background-image: url(../images/ImagenesParallax/hojas.jpg);
+}
+.parallax.cover-2 {
+    background-image: url(../images/ImagenesParallax/Hojas2.jpg);
+}
+.parallax.cover-3 {
+    background-image: url(../images/ImagenesParallax/Agua.jpg);
 }
