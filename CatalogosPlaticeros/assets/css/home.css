@@ -1,4 +1,4 @@
-.body{
+.body {
 width: 100%;
 align-items: center;
 display: flex;
@@ -7,32 +7,33 @@ display: flex;
 position: relative;
 justify-content: space-between;
 }
-.imgBody{
+.imgBody {
     width: 100%;
-    
 }
-.title{
+.title {
     display: flex;
     position: absolute;
     padding: 15%;
     align-items: center;
     background-color: aqua;
 }
-.text{
+.text {
     display:flex;
     position: absolute;
     padding: 20%;
     background-color: blue;
 }
-.title2{
+.title2 {
     display: flex;
     position: ;
     padding-top: 40%;
     padding-left: 5%;
     background-color: brown;
 }
-.text2{
+.text2 {
     display: flex;
     justify-content: space-between;
-    
+}
+section.footer {
+    position: fixed;
 }
