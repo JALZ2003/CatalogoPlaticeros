@@ -1,11 +1,12 @@
 const cardsContainer = document.getElementById('cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
+const buttonAddedProductDetail = productDetailContainer.querySelector('button');
+const sendArrayProductAdded = document.querySelector('.navbar-shopping-cart');
+let prductAded = [];
 
 function createCard(Data) {
-
     for (let i = 0; i < Data.length; i++) {
-
         const nameCard = Data[i].Name;
         const imgCard = parseInt(Data[i].Img);
         const priceCard = Data[i].Price;
@@ -45,7 +46,6 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
     return content;
 }
 
-
 function viewDestails() {
     let Name = sessionStorage.getItem('Name');
     let Image = sessionStorage.getItem('Image');
@@ -54,7 +54,7 @@ function viewDestails() {
     let Category = sessionStorage.getItem('Category');
     let details = sessionStorage.getItem('details');
     let setImage = productDetailContainer.querySelector('.image');
-    setImage.setAttribute('src','../assets/images/imagenesCatalogo/' + Image + '.png');
+    setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + Image + '.png');
     let setPrice = productDetailContainer.querySelector('.price');
     setPrice.textContent = 'Price: $' + Price + '000';
     let setName = productDetailContainer.querySelector('.name');
@@ -70,10 +70,32 @@ function viewDestails() {
 
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
+buttonAddedProductDetail.addEventListener('click', () => {
+    let Name = sessionStorage.getItem('Name');
+    let Image = sessionStorage.getItem('Image');
+    let Price = sessionStorage.getItem('Price');
+    let Avaible = sessionStorage.getItem('Avaible');
+    let Category = sessionStorage.getItem('Category');
+    let details = sessionStorage.getItem('details');
+    addedProduct(Name, Image, Price, Avaible, Category, details);
+});
+
+sendArrayProductAdded.addEventListener('click', () => {
+    sessionStorage.setItem('productAdded', JSON.stringify(prductAded));
+    window.location.href = '../pages/cart.html';
+})
+
 function openProductDetailAside() {
     productDetailContainer.classList.remove('inactive');
 }
 
 function closeProductDetailAside(i) {
     productDetailContainer.classList.add('inactive');
+}
+
+function addedProduct(nameCard, imgCard, priceCard, availableCard, category, details) {
+    let product = { Name: nameCard, Image: imgCard, Price: priceCard, Category: category, Details: details };
+    prductAded.push(product);
+    let countProduct = sendArrayProductAdded.querySelector('div');
+    countProduct.textContent = prductAded.length;
 }
