@@ -8,7 +8,7 @@ let prductAded = [];
 function createCard(Data) {
     for (let i = 0; i < Data.length; i++) {
         const nameCard = Data[i].Name;
-        const imgCard = parseInt(Data[i].Img);
+        const imgCard = parseFloat(Data[i].Img);
         const priceCard = Data[i].Price;
         const availableCard = Data[i].Available;
         const category = Data[i].category;
@@ -29,9 +29,7 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
         '<p>' + "Available: " + availableCard + '</p>\n' +
         '<p>' + "Category: " + category + '</p>\n' +
         '</div>\n' +
-        '<figure>\n' +
-        '<img src="../assets/icons/bt_add_to_cart.svg" alt="Add to Cart">\n' +
-        '</figure>\n' +
+        
         '</div>\n';
     content.innerHTML += card;
     content.addEventListener('click', () => {
@@ -74,10 +72,7 @@ buttonAddedProductDetail.addEventListener('click', () => {
     let Name = sessionStorage.getItem('Name');
     let Image = sessionStorage.getItem('Image');
     let Price = sessionStorage.getItem('Price');
-    let Avaible = sessionStorage.getItem('Avaible');
-    let Category = sessionStorage.getItem('Category');
-    let details = sessionStorage.getItem('details');
-    addedProduct(Name, Image, Price, Avaible, Category, details);
+    addedProduct(Name, Image, Price);
 });
 
 sendArrayProductAdded.addEventListener('click', () => {
@@ -93,8 +88,8 @@ function closeProductDetailAside(i) {
     productDetailContainer.classList.add('inactive');
 }
 
-function addedProduct(nameCard, imgCard, priceCard, availableCard, category, details) {
-    let product = { Name: nameCard, Image: imgCard, Price: priceCard, Category: category, Details: details };
+function addedProduct(nameCard, imgCard, priceCard) {
+    let product = { Name: nameCard, Image: imgCard, Price: priceCard};
     prductAded.push(product);
     let countProduct = sendArrayProductAdded.querySelector('div');
     countProduct.textContent = prductAded.length;
