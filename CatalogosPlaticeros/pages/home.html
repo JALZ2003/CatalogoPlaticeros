@@ -38,7 +38,11 @@
 
         <div class="navbar-right">
             <ul>
-                <li class="navbar-email"> Bandera </li>
+                <li class="navbar-email">
+                    <div id="flag-container">
+                        <img id="flag-image" src="" alt="Country Flag">
+                    </div>
+                </li>
                 <li class="navbar-shopping-cart">
                     <a href="cart.html"><img src="../assets/icons/icon_shopping_cart.svg" alt="shopping cart"></a>
                     <div>0</div>
@@ -63,52 +67,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- <h1>Bandera por Ubicación</h1>
-    <img id="flag" src="https://flagcdn.com/w320/blank.png" alt="Bandera" />
-    <script>
-        function getFlagUrl(lat, lng) {
-            const url = `https://flagcdn.com/w320/${getCountryCode(lat, lng).toLowerCase()}.png`;
-            return url;
-        }
-
-        function getCountryCode(lat, lng) {
-            // Llamada a servicio de terceros para obtener el código de país
-            const url = `https://nominatim.org/search.php?q=${lat},${lng}&format=jsonv2`;
-            return fetch(url)
-                .then((response) => response.json())
-                .then((data) => {
-                    if (data.length > 0) {
-                        return data[0].address.country_code;
-                    }
-                });
-        }
-
-
-        function showFlag(lat, lng) {
-            const img = document.getElementById('flag');
-            const url = getFlagUrl(lat, lng);
-            img.src = url;
-        }
-
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(
-                    function (position) {
-                        showFlag(position.coords.latitude, position.coords.longitude);
-                    },
-                    function () {
-                        alert('No se pudo obtener la ubicación del usuario');
-                    }
-                );
-            } else {
-                alert('La geolocalización no está disponible en este navegador');
-            }
-        }
-
-        getLocation();
-        console.log(getLocation());
-    </script> -->
 
     <!-- section 1 -->
     <div class="block parallax cover-1">
@@ -213,6 +171,7 @@
 
     <!-- JavaScript -->
     <script src="../JS/main.js"></script>
+    <script src="../JS/home.js"></script>
 </body>
 
 </html>

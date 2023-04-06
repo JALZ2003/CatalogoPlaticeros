@@ -2,6 +2,7 @@
     margin: 0px;
     padding: 0px;
 }
+
 .contenedor {
     max-width: 960px;
     height: 400px;
@@ -9,6 +10,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .block {
     height: 500px;
     background-color: white;
@@ -16,6 +18,7 @@
     justify-content: center;
     align-items: center;
 }
+
 .block h1 {
     margin: 0px;
     text-align: center;
@@ -35,6 +38,7 @@
     text-align: justify;
     color: black;
 }
+
 .block.parallax {
     height: 600px;
     background-position: 50% 50%;
@@ -42,12 +46,20 @@
     background-size: cover;
     background-attachment: fixed;
 }
+
 .parallax.cover-1 {
     background-image: url(../images/ImagenesParallax/hojas.jpg);
 }
+
 .parallax.cover-2 {
     background-image: url(../images/ImagenesParallax/Hojas2.jpg);
 }
+
 .parallax.cover-3 {
     background-image: url(../images/ImagenesParallax/Agua.jpg);
+}
+
+#flag-image {
+    width: 30px;
+    height: 20px;
 }
