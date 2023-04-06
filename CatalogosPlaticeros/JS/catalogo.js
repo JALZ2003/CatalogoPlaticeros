@@ -3,7 +3,24 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const buttonAddedProductDetail = productDetailContainer.querySelector('button');
 const sendArrayProductAdded = document.querySelector('.navbar-shopping-cart');
+let countProduct = sendArrayProductAdded.querySelector('div');
 let prductAded = [];
+if(JSON.parse(localStorage.getItem('productAdded')) != null) {
+    prductAded = JSON.parse(localStorage.getItem('productAdded'));
+}
+countProduct.textContent = prductAded.length;
+
+validation();
+
+function validation() {
+    if (JSON.parse(localStorage.getItem('productsCheck')) != null) {
+        let checked = JSON.parse(localStorage.getItem('productsCheck'));
+        discountsAvailables(checked);
+        createCard(DataPlaticeros);
+    } else {
+        createCard(DataPlaticeros);
+    }
+}
 
 function createCard(Data) {
     for (let i = 0; i < Data.length; i++) {
@@ -16,7 +33,6 @@ function createCard(Data) {
         cardsContainer.appendChild(card);
     }
 }
-createCard(DataPlaticeros);
 
 function cardProduct(nameCard, imgCard, priceCard, availableCard, category, details) {
     let content = document.createElement('div');
@@ -76,7 +92,7 @@ buttonAddedProductDetail.addEventListener('click', () => {
 });
 
 sendArrayProductAdded.addEventListener('click', () => {
-    sessionStorage.setItem('productAdded', JSON.stringify(prductAded));
+    localStorage.setItem('productAdded', JSON.stringify(prductAded));
     window.location.href = '../pages/cart.html';
 })
 
@@ -91,6 +107,18 @@ function closeProductDetailAside(i) {
 function addedProduct(nameCard, imgCard, priceCard) {
     let product = { Name: nameCard, Image: imgCard, Price: priceCard};
     prductAded.push(product);
-    let countProduct = sendArrayProductAdded.querySelector('div');
     countProduct.textContent = prductAded.length;
+}
+
+function discountsAvailables(list) {
+    for (let i = 0; i < list.length; i++) {
+        const element = list[i];
+        for (let j = 0; j < DataPlaticeros.length; j++) {
+            const data = DataPlaticeros[j];
+            if (data.Name === element.Name) {
+                data.Available--;
+            }
+        }
+    }
+    localStorage.removeItem('productsCheck');
 }

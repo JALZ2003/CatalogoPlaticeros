@@ -6,12 +6,10 @@
     margin-top: 2rem;
     padding: 2rem;
 }
-
 .my-order-content {
     width: 70%;
     margin: auto;
 }
-
 /* Estilos para pantallas medianas */
 @media (max-width: 768px) {
     .container {
@@ -24,7 +22,6 @@
         margin: auto;
     }
 }
-
 /* Estilos para pantallas pequeñas */
 @media (max-width: 576px) {
     .container {
@@ -36,4 +33,7 @@
         width: 100%;
         margin: auto;
     }
+}
+section.footer {
+    position: fixed;
 }
