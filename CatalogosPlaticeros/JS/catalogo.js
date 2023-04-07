@@ -5,7 +5,7 @@ const buttonAddedProductDetail = productDetailContainer.querySelector('button');
 const sendArrayProductAdded = document.querySelector('.navbar-shopping-cart');
 let countProduct = sendArrayProductAdded.querySelector('div');
 let prductAded = [];
-if(JSON.parse(localStorage.getItem('productAdded')) != null) {
+if (JSON.parse(localStorage.getItem('productAdded')) != null) {
     prductAded = JSON.parse(localStorage.getItem('productAdded'));
 }
 countProduct.textContent = prductAded.length;
@@ -45,7 +45,7 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
         '<p>' + "Available: " + availableCard + '</p>\n' +
         '<p>' + "Category: " + category + '</p>\n' +
         '</div>\n' +
-        
+
         '</div>\n';
     content.innerHTML += card;
     content.addEventListener('click', () => {
@@ -105,7 +105,7 @@ function closeProductDetailAside(i) {
 }
 
 function addedProduct(nameCard, imgCard, priceCard) {
-    let product = { Name: nameCard, Image: imgCard, Price: priceCard};
+    let product = { Name: nameCard, Image: imgCard, Price: priceCard };
     prductAded.push(product);
     countProduct.textContent = prductAded.length;
 }

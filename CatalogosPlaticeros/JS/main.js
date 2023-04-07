@@ -249,7 +249,7 @@ let DataPlaticeros = [
 //     //     </figure>
 //     //     <p>Bike</p>
 //     //     <p>120.12$</p>
-//     //     <img src="./icons/icon_close.png" alt="close" style="cursor: pointer;">  
+//     //     <img src="./icons/icon_close.png" alt="close" style="cursor: pointer;">
 //     // </div>
 
 // }
