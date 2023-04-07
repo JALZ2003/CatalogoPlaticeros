@@ -1,13 +1,13 @@
-.main-container{
+.main-container {
     margin-left: 3%;
     margin-right: 3%;
     padding: 2%;
 }
-h2{
+
+h2 {
     width: 100%;
     text-align: center;
     font-size: 50pt;
     color: #389742;
     border-left-color: black;
-    
 }

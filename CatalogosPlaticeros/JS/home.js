@@ -9,7 +9,7 @@ fetch('https://ipapi.co/json/', {
     // Acceder a la información de la dirección IP del usuario desde el objeto de respuesta
     const country = data.country_code.toLowerCase();
 
-    const flagURL = 'https://www.worldometers.info/img/flags/'+country+'-flag.gif';
+    const flagURL = 'https://www.worldometers.info/img/flags/' + country + '-flag.gif';
 
     const flagimage = document.getElementById('flag-image');
 

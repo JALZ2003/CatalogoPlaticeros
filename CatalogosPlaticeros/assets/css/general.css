@@ -19,14 +19,13 @@ body {
   display: none;
 }
 
-
 /* Navbar (general) */
 nav {
   display: flex;
   justify-content: space-between;
   padding: 0 30px;
   border-bottom: 1px solid var(--very-light-pink);
-  
+
 }
 
 .menu {
@@ -381,7 +380,7 @@ aside {
 }
 
 .product-card .product-info figure {
-  margin-top:70% ;
+  margin-top: 70%;
   bottom: 0;
   right: 0;
 }
@@ -454,7 +453,7 @@ footer.top img {
 }
 
 section.footer {
- /* position: fixed;*/
+  /* position: fixed;*/
   left: 0;
   bottom: 0px;
   width: 100%;
@@ -529,7 +528,7 @@ footer h2 {
 
 .legal>a {
   margin: 0 4px;
-  
+
 }
 
 .legal>span {
@@ -539,19 +538,19 @@ footer h2 {
 footer.bottom .links {
   display: flex;
   gap: 18px;
-  
+
 }
 
 footer.bottom .links>a {
   font-size: 24px;
-  
+
 }
 
 @media (width < 420px) {
   footer {
     text-align: center;
     align-items: center;
-    
+
   }
 
   footer.top .links {

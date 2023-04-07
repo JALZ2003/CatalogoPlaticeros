@@ -6,14 +6,17 @@
     margin-top: 2rem;
     padding: 2rem;
 }
-.title{
+
+.title {
     color: #198754;
 }
+
 .my-order-content {
     width: 70%;
     margin: auto;
-    
+
 }
+
 /* Estilos para pantallas medianas */
 @media (max-width: 768px) {
     .container {
@@ -26,6 +29,7 @@
         margin: auto;
     }
 }
+
 /* Estilos para pantallas pequeñas */
 @media (max-width: 576px) {
     .container {
@@ -38,6 +42,7 @@
         margin: auto;
     }
 }
+
 section.footer {
     position: fixed;
 }
