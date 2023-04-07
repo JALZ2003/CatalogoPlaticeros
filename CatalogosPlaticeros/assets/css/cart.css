@@ -1,14 +1,18 @@
 /* Estilos para pantallas grandes */
-.containe {
+.container {
     width: 50%;
     justify-content: center;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     margin-top: 2rem;
     padding: 2rem;
 }
+.title{
+    color: #198754;
+}
 .my-order-content {
     width: 70%;
     margin: auto;
+    
 }
 /* Estilos para pantallas medianas */
 @media (max-width: 768px) {

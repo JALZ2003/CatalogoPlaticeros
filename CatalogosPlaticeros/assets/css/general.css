@@ -24,8 +24,9 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 30px;
   border-bottom: 1px solid var(--very-light-pink);
+  
 }
 
 .menu {
@@ -277,16 +278,21 @@ aside {
   height: 50px;
 }
 
+#flag-image {
+  width: 40px;
+  height: 30px;
+}
+
 /* ProductDetail */
 .product-detail-close {
   background: var(--white);
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
   position: absolute;
   top: 24px;
   left: 24px;
   z-index: 2;
-  padding: 12px;
+  padding: 15px;
   border-radius: 50%;
 }
 
@@ -499,7 +505,7 @@ footer.bottom {
 
 footer.top .links {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, );
   gap: 30px;
 }
 
@@ -513,15 +519,17 @@ footer h2 {
   margin: 0;
   font-size: 16px;
   font-weight: 400;
-  color: #f7f7f7;
+  color: #88b78b;
 }
 
 .legal {
   font-size: 12px;
+  color: #88b78b;
 }
 
 .legal>a {
   margin: 0 4px;
+  
 }
 
 .legal>span {
@@ -531,16 +539,19 @@ footer h2 {
 footer.bottom .links {
   display: flex;
   gap: 18px;
+  
 }
 
 footer.bottom .links>a {
   font-size: 24px;
+  
 }
 
 @media (width < 420px) {
   footer {
     text-align: center;
     align-items: center;
+    
   }
 
   footer.top .links {

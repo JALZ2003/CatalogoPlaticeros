@@ -13,7 +13,7 @@
 
 .block {
     height: 500px;
-    background-color: white;
+    
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,8 +23,9 @@
     margin: 0px;
     text-align: center;
     font-size: 80px;
-    color: white;
+    color:#ffffff;
     line-height: 600px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .block h2 {
@@ -48,18 +49,14 @@
 }
 
 .parallax.cover-1 {
-    background-image: url(../images/ImagenesParallax/hojas.jpg);
+    background-image: url(../images/ImagenesParallax/2.png);
 }
 
 .parallax.cover-2 {
-    background-image: url(../images/ImagenesParallax/Hojas2.jpg);
+    background-image: url(../images/ImagenesParallax/1.png);
 }
 
 .parallax.cover-3 {
-    background-image: url(../images/ImagenesParallax/Agua.jpg);
+    background-image: url(../images/ImagenesParallax/5.png);
 }
 
-#flag-image {
-    width: 30px;
-    height: 20px;
-}

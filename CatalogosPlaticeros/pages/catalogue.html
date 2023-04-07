@@ -23,22 +23,27 @@
         <img src="../assets/icons/icon_menu.svg" alt="menu" class="menu">
 
         <div class="navbar-left">
-            <img src="../assets/images/Logo - Platiceros/Platiceros  - Variaciones para redes.png" alt="logo"
+            <a href="./home.html">
+                <img src="../assets/images/Logo - Platiceros/Platiceros  - Variaciones para redes.png" alt="logo"
                 class="logo">
-
+            </a>
             <ul>
                 <li>
                     <a href="home.html"> Home </a>
                 </li>
                 <li>
-                    <a href="#"> Catalogo </a>
+                    <a href="#"> Catalogue </a>
                 </li>
             </ul>
         </div>
 
         <div class="navbar-right">
             <ul>
-                <li class="navbar-email"> Bandera </li>
+                <li class="navbar-email">
+                    <div id="flag-container">
+                        <img id="flag-image" src="" alt="Country Flag">
+                    </div>
+                </li>
                 <li class="navbar-shopping-cart">
                     <a href="cart.html"><img src="../assets/icons/icon_shopping_cart.svg" alt="shopping cart"></a>
                     <div>0</div>
@@ -83,47 +88,42 @@
     </aside>
 
     <section id="main-container" class="main-container">
+        <h2 class="$primary-text-emphasis">Catalogue</h2>
         <div id="cards-container" class="cards-container">
 
         </div>
     </section>
 
     <section class="footer">
-        <footer class="top">
-            <img src="../assets/images/Logo - Platiceros/Logo platiceros - completo - blanco.png" />
-            <div class="links">
-                <div>
-                    <h2>Platform</h2>
-                    <a>Directus Core</a>
-                    <a>Open Data Platform</a>
-                    <a>Feature List</a>
-                    <a>Road Map</a>
-                    <a>Marketplace</a>
+        <section class="footer">
+            <footer class="top">
+                <img src="../assets/images/Logo - Platiceros/Logo platiceros - completo - blanco.png" />
+                <div class="links">
+                    <div>
+                        <h2>Create By</h2>
+                        <a>Jannus Alejandro Largo Zafra</a>
+                        <a>Mauricio Alexander Pantoja</a>
+                        <a>Natalia García López</a>
+                        <a>Andrea Prada</a>
+                        <a>Juan Mateo Lozano</a>
+                    </div>
+                    
                 </div>
-                <div>
-                    <h2>Cloud</h2>
-                    <a>Dashboard</a>
-                    <a>Register</a>
-                    <a>Pricing</a>
-                    <a>System Status</a>
-                    <a>Partner Program</a>
+            </footer>
+            <footer class="bottom">
+                <div class="legal">
+                    <span> © 2023 All rights reserved </span>
+                    <a> License </a>
+                    <a> Terms </a>
+                    <a> Privacy </a>
                 </div>
-            </div>
-        </footer>
-        <footer class="bottom">
-            <div class="legal">
-                <span> © 2023 All rights reserved </span>
-                <a> License </a>
-                <a> Terms </a>
-                <a> Privacy </a>
-            </div>
-            <div class="links">
-                <a class="fa-brands fa-github"></a>
-                <a class="fa-brands fa-linkedin"></a>
-                <a class="fa-brands fa-docker"></a>
-            </div>
-        </footer>
-    </section>
+                <div class="links">
+                    <a class="fa-brands fa-github"></a>
+                    <a class="fa-brands fa-linkedin"></a>
+                    <a class="fa-brands fa-docker"></a>
+                </div>
+            </footer>
+        </section>
 
     <!-- Boostrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js"
@@ -132,8 +132,10 @@
 
     <!-- JavaScript -->
     <script src="../JS/main.js"></script>
+    <script src="../JS/home.js"></script>
     <script src="../JS/catalogo.js"></script>
     <script src="../JS/asideCards.js"></script>
+    
 
 </body>
 
