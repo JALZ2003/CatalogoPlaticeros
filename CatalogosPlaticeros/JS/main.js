@@ -60,7 +60,16 @@ let DataPlaticeros = [
         Price: 150.000,
         Details: "Canasta de alambre 30 cm, altura 60 cm",
         Available: 15,
-        category: "Plants",
+        category: "Arbol",
+    },
+
+    {
+        Img: 17,
+        Name: "Platycerium superbum",
+        Price: 150.000,
+        Details: "Canasta de alambre 30 cm, altura 60 cm",
+        Available: 15,
+        category: "Flor",
     },
 
     {
@@ -96,7 +105,7 @@ let DataPlaticeros = [
         Price: 150.000,
         Details: "Canasta de alambre 30 cm, altura 60 cm",
         Available: 15,
-        category: "Plants",
+        category: "Arbol",
     },
 
     {
@@ -105,7 +114,7 @@ let DataPlaticeros = [
         Price: 150.000,
         Details: "Canasta de alambre 30 cm, altura 60 cm",
         Available: 15,
-        category: "Plants",
+        category: "Flor",
     },
 
     {
@@ -114,16 +123,7 @@ let DataPlaticeros = [
         Price: 150.000,
         Details: "Canasta de alambre 30 cm, altura 60 cm",
         Available: 15,
-        category: "Plants",
-    },
-
-    {
-        Img: 17,
-        Name: "Platycerium superbum",
-        Price: 150.000,
-        Details: "Canasta de alambre 30 cm, altura 60 cm",
-        Available: 15,
-        category: "Plants",
+        category: "Arbol",
     },
 ];
 
