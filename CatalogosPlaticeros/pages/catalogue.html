@@ -87,6 +87,28 @@
         </div>
     </aside>
 
+    <div class="container d-flex justify-content-between">
+        <div>
+            <div class="form-check form-check-inline">
+                <select class="form-select categories" aria-label="Default select example">
+                    <option value="All" selected> Todas las Categorias </option>
+                </select>
+            </div>
+            <div class="form-check form-check-inline">
+                <select class="form-select upward" aria-label="Default select example">
+                    <option value="true" selected> Ascendente </option>
+                    <option value="false"> Descendente </option>
+                </select>
+            </div>
+        </div>
+        <div class="form-check form-check-inline">
+            <form class="d-flex" role="search">
+                <input id="price" class="form-control me-2" type="number" placeholder="Filtro Precio" value="0" aria-label="Filtro Precio">
+                <button id="filter" class="btn btn-outline-success" type="button"> Filtrar </button>
+            </form>
+        </div>
+    </div>
+
     <section id="main-container" class="main-container">
         <h2 class="$primary-text-emphasis">Catalogue</h2>
         <div id="cards-container" class="cards-container">
@@ -133,7 +155,6 @@
     <script src="../JS/main.js"></script>
     <script src="../JS/home.js"></script>
     <script src="../JS/catalogo.js"></script>
-    <script src="../JS/asideCards.js"></script>
 </body>
 
 </html>

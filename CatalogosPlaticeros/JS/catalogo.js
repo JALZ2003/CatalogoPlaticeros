@@ -3,6 +3,10 @@ const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
 const buttonAddedProductDetail = productDetailContainer.querySelector('button');
 const sendArrayProductAdded = document.querySelector('.navbar-shopping-cart');
+const formSelectCategories = document.querySelector('.categories');
+const formSelectupward = document.querySelector('.upward');
+const price = document.getElementById('price');
+const filter = document.getElementById('filter');
 let countProduct = sendArrayProductAdded.querySelector('div');
 let prductAded = [];
 if (JSON.parse(localStorage.getItem('productAdded')) != null) {
@@ -10,15 +14,20 @@ if (JSON.parse(localStorage.getItem('productAdded')) != null) {
 }
 countProduct.textContent = prductAded.length;
 
+let isUpward = () => { return JSON.parse(formSelectupward.value) };
+let isCategory = () => { return formSelectCategories.value != 'All' };
+let isPrice = () => { return parseInt(price.value) != 0 };
+
+insertCategory();
 validation();
 
 function validation() {
     if (JSON.parse(localStorage.getItem('productsCheck')) != null) {
         let checked = JSON.parse(localStorage.getItem('productsCheck'));
         discountsAvailables(checked);
-        createCard(DataPlaticeros);
+        createCard(filters(DataPlaticeros));
     } else {
-        createCard(DataPlaticeros);
+        createCard(filters(DataPlaticeros));
     }
 }
 
@@ -100,7 +109,7 @@ function openProductDetailAside() {
     productDetailContainer.classList.remove('inactive');
 }
 
-function closeProductDetailAside(i) {
+function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
@@ -122,4 +131,72 @@ function discountsAvailables(list) {
     }
     localStorage.removeItem('productsCheck');
 }
-    
+
+let validatePrice = (getPrice, dataPrice) => { return dataPrice.Price <= getPrice };
+
+let validateCategory = (getCategory, dataCategory) => { return getCategory == dataCategory.category };
+
+function filters(list) {
+    let getPrice = parseInt(price.value);
+    let getCategory = formSelectCategories.value;
+
+    if (isUpward()) {
+        return validations(list, getCategory, getPrice).sort((a, b) => a.Price - b.Price);
+    } else {
+        return validations(list, getCategory, getPrice).sort((a, b) => b.Price - a.Price);
+    }
+}
+
+function validations(list, getCategory, getPrice) {
+    if (isCategory()) {
+        if (isPrice()) {
+            return list.filter(data => {
+                return validateCategory(getCategory, data) && validatePrice(getPrice, data);
+            })
+        } else {
+            return list.filter(data => {
+                return validateCategory(getCategory, data);
+            });
+        }
+    } else {
+        if (isPrice()) {
+            return list.filter(data => {
+                return validatePrice(getPrice, data);
+            })
+        } else {
+            return list;
+        }
+    }
+}
+
+filter.addEventListener('click', () => {
+    removeElementsCard();
+    createCard(filters(DataPlaticeros));
+})
+
+function getCategories() {
+    let categories = [];
+    for (let i = 0; i < DataPlaticeros.length; i++) {
+        const element = DataPlaticeros[i];
+        if (!categories.includes(element.category)) {
+            categories.push(element.category);
+        }
+    }
+    return categories;
+}
+
+function insertCategory() {
+    getCategories().forEach(category => {
+        let option = '<option value="' + category + '"> ' + category + ' </option>';
+        formSelectCategories.innerHTML += option;
+    })
+}
+
+function removeElementsCard() {
+    let elements = cardsContainer.children;
+    for (let i = 0; i < elements.length; i++) {
+        const element = elements[i];
+        element.remove();
+        i--;
+    }
+}

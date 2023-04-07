@@ -452,6 +452,11 @@ footer.top img {
   height: 100px;
 }
 
+footer.top img.github {
+  width: 30px;
+  height: 30px;
+}
+
 section.footer {
   /* position: fixed;*/
   left: 0;
@@ -487,7 +492,7 @@ footer>img {
 @media (width >=620px) {
   footer {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 800px;
     padding: 0;
   }
 }
@@ -504,7 +509,7 @@ footer.bottom {
 
 footer.top .links {
   display: grid;
-  grid-template-columns: repeat(2, );
+  grid-template-columns: repeat(2, 1fr);
   gap: 30px;
 }
 
