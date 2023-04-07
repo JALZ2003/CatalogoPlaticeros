@@ -122,3 +122,4 @@ function discountsAvailables(list) {
     }
     localStorage.removeItem('productsCheck');
 }
+    
