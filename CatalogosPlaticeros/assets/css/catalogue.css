@@ -14,4 +14,16 @@ h2 {
 
 .filters {
     margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (width <=1000px) {
+    .filters>div {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
 }

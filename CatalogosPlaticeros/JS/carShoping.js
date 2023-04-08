@@ -1,3 +1,5 @@
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 const containerOrdersAndTotal = document.querySelector('.container');
 const buttonCheck = containerOrdersAndTotal.querySelector('.primary-button');
 const container = document.querySelector('.my-order-content');
@@ -36,9 +38,7 @@ function creatProductCart(nameCard, imgCard, priceCard, position) {
 	shoppingCart.appendChild(closeButton);
 	operation += parseInt(priceCard);
 	shoppingCart.addEventListener('click', () => {
-		sessionStorage.setItem('id', position);
-		sessionStorage.setItem('price', priceCard);
-		removeProduct();
+		removeProduct(position, priceCard);
 	})
 	return shoppingCart;
 }
@@ -53,35 +53,43 @@ function insertProductAddeds(Data) {
 
 insertProductAddeds(productAddeds);
 
-function removeProduct() {
-	let position = JSON.parse(sessionStorage.getItem('id'));
-	let price = JSON.parse(sessionStorage.getItem('price'));
-	let products = container.children;
-	operation -= price;
+function removeProduct(position, priceCard) {
+	console.log(operation, priceCard);
+	operation = 0;
 	total.textContent = '$' + operation + '.000';
-	countProducts.textContent = products.length - 1;
 	productAddeds.splice(position, 1);
+	countProducts.textContent = productAddeds.length;
+	removeElementsCart();
 	localStorage.setItem('productAdded', JSON.stringify(productAddeds));
-	products[position].remove();
+	insertProductAddeds(productAddeds);
 }
 
 buttonCheck.addEventListener('click', () => {
 	checkButton();
-	localStorage.setItem('productsCheck', JSON.stringify(productsCheck));
 });
 
+menuHamIcon.addEventListener('click', openMenu);
+
+function openMenu() {
+	mobileMenu.classList.toggle('inactive');
+}
+
 function checkButton() {
-	let products = container.children;
-	console.log(products);
-	for (let i = 0; i < products.length; i++) {
-		const price = parseInt(productAddeds[i].Price);
-		productsCheck.push(productAddeds[i]);
-		const element = products[i];
-		operation -= price;
+	removeElementsCart();
+	for (let i = 0; i < productAddeds.length; i++) {
+		operation = 0;
 		total.textContent = '$' + operation + '.000';
-		countProducts.textContent = products.length - 1;
+		countProducts.textContent = 0;
 		productAddeds.splice(i, 1);
-		localStorage.setItem('productAdded', JSON.stringify(productAddeds));
+		i--;
+	}
+	localStorage.setItem('productAdded', JSON.stringify(productAddeds));
+}
+
+function removeElementsCart() {
+	let elements = container.children
+	for (let i = 0; i < elements.length; i++) {
+		const element = elements[i];
 		element.remove();
 		i--;
 	}
