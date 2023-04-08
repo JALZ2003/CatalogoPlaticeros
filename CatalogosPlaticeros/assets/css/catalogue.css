@@ -11,3 +11,7 @@ h2 {
     color: #389742;
     border-left-color: black;
 }
+
+.filters {
+    margin-top: 30px;
+}

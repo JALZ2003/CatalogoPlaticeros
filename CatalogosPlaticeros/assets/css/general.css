@@ -25,7 +25,6 @@ nav {
   justify-content: space-between;
   padding: 0 30px;
   border-bottom: 1px solid var(--very-light-pink);
-
 }
 
 .menu {
@@ -35,6 +34,17 @@ nav {
 .logo {
   width: 60px;
   height: 60px;
+}
+
+@media (width <= 640px){
+  .logo {
+    width: 35px;
+    height: 35px;
+  }
+  .navbar-left a {
+    display: flex;
+    align-items: center;
+  }
 }
 
 .navbar-left ul,
