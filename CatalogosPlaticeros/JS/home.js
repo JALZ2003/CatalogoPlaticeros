@@ -1,16 +1,13 @@
-// Hacer una solicitud HTTP para obtener información sobre la dirección IP del usuario
-fetch('https://ipapi.co/json/', {
-  mode: 'cors'
-})
-  .then(response => response.json())
-  .then(data => {
-    // Acceder a la información de la dirección IP del usuario desde el objeto de respuesta
-    const country = data.country_code.toLowerCase();
+const containerCount = document.querySelector('.navbar-shopping-cart');
+const countProducts = containerCount.querySelector('div');
+let productAddeds = JSON.parse(localStorage.getItem('productAdded'));
+countProducts.textContent = productAddeds.length;
 
-    const flagURL = 'https://www.worldometers.info/img/flags/' + country + '-flag.gif';
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 
-    const flagimage = document.getElementById('flag-image');
+menuHamIcon.addEventListener('click', openMenu);
 
-    flagimage.src = flagURL;
-  })
-  .catch(error => console.error(error));
+function openMenu() {
+  mobileMenu.classList.toggle('inactive');
+}

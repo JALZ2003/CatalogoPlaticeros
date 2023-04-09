@@ -13,7 +13,6 @@
 
 .block {
     height: 500px;
-
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,4 +62,34 @@
 .github {
     width: 30px;
     height: 30px;
+}
+
+@media (width <= 1300px){
+    .block h1 {
+        font-size: 60px;
+        line-height: 100px;
+    }
+
+    .block h2 {
+        font-size: 35px;
+    }
+
+    .block p {
+        font-size: 25px;
+    }
+}
+
+@media (width <= 680px){
+    .block h1 {
+        font-size: 40px;
+        line-height: 50px;
+    }
+
+    .block h2 {
+        font-size: 25px;
+    }
+
+    .block p {
+        font-size: 15px;
+    }
 }

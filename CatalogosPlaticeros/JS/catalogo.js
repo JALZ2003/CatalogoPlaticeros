@@ -1,3 +1,5 @@
+const menuHamIcon = document.querySelector('.menu');
+const mobileMenu = document.querySelector('.mobile-menu');
 const cardsContainer = document.getElementById('cards-container');
 const productDetailContainer = document.querySelector('#productDetail');
 const productDetailCloseIcon = document.querySelector('.product-detail-close');
@@ -8,10 +10,16 @@ const formSelectupward = document.querySelector('.upward');
 const price = document.getElementById('price');
 const filter = document.getElementById('filter');
 let countProduct = sendArrayProductAdded.querySelector('div');
+
 let prductAded = [];
+
+let allProducts = DataPlaticeros;
+
 if (JSON.parse(localStorage.getItem('productAdded')) != null) {
     prductAded = JSON.parse(localStorage.getItem('productAdded'));
+    allProducts = discountsAvailables(prductAded, allProducts);
 }
+
 countProduct.textContent = prductAded.length;
 
 let isUpward = () => { return JSON.parse(formSelectupward.value) };
@@ -22,13 +30,7 @@ insertCategory();
 validation();
 
 function validation() {
-    if (JSON.parse(localStorage.getItem('productsCheck')) != null) {
-        let checked = JSON.parse(localStorage.getItem('productsCheck'));
-        discountsAvailables(checked);
-        createCard(filters(DataPlaticeros));
-    } else {
-        createCard(filters(DataPlaticeros));
-    }
+    createCard(filters(allProducts));
 }
 
 function createCard(Data) {
@@ -61,33 +63,24 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
         sessionStorage.setItem('Name', nameCard);
         sessionStorage.setItem('Image', imgCard);
         sessionStorage.setItem('Price', priceCard);
-        sessionStorage.setItem('Avaible', availableCard);
-        sessionStorage.setItem('Category', category);
-        sessionStorage.setItem('details', details);
-        viewDestails();
+        viewDestails(nameCard, imgCard, priceCard, availableCard, category, details);
     });
     return content;
 }
 
-function viewDestails() {
-    let Name = sessionStorage.getItem('Name');
-    let Image = sessionStorage.getItem('Image');
-    let Price = sessionStorage.getItem('Price');
-    let Avaible = sessionStorage.getItem('Avaible');
-    let Category = sessionStorage.getItem('Category');
-    let details = sessionStorage.getItem('details');
+function viewDestails(nameCard, imgCard, priceCard, availableCard, category, details) {
     let setImage = productDetailContainer.querySelector('.image');
-    setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + Image + '.png');
+    setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + imgCard + '.png');
     let setPrice = productDetailContainer.querySelector('.price');
-    setPrice.textContent = 'Price: $' + Price + '000';
+    setPrice.textContent = 'Price: $' + priceCard + '000';
     let setName = productDetailContainer.querySelector('.name');
-    setName.textContent = 'Name: ' + Name;
+    setName.textContent = 'Name: ' + nameCard;
     let setDetails = productDetailContainer.querySelector('.details');
     setDetails.textContent = details;
     let setAvaible = productDetailContainer.querySelector('.avaible');
-    setAvaible.textContent = Avaible;
+    setAvaible.textContent = availableCard;
     let setCategory = productDetailContainer.querySelector('.category');
-    setCategory.textContent = 'Category: ' + Category;
+    setCategory.textContent = 'Category: ' + category;
     openProductDetailAside();
 }
 
@@ -105,6 +98,13 @@ sendArrayProductAdded.addEventListener('click', () => {
     window.location.href = '../pages/cart.html';
 })
 
+menuHamIcon.addEventListener('click', openMenu);
+
+function openMenu() {
+    closeProductDetailAside();
+    mobileMenu.classList.toggle('inactive');
+}
+
 function openProductDetailAside() {
     productDetailContainer.classList.remove('inactive');
 }
@@ -117,19 +117,26 @@ function addedProduct(nameCard, imgCard, priceCard) {
     let product = { Name: nameCard, Image: imgCard, Price: priceCard };
     prductAded.push(product);
     countProduct.textContent = prductAded.length;
+    localStorage.setItem('productAdded', JSON.stringify(prductAded));
+    removeElementsCard();
+    createCard(filters(discountsAvailables(prductAded)));
 }
 
-function discountsAvailables(list) {
-    for (let i = 0; i < list.length; i++) {
-        const element = list[i];
-        for (let j = 0; j < DataPlaticeros.length; j++) {
-            const data = DataPlaticeros[j];
-            if (data.Name === element.Name) {
-                data.Available--;
+function discountsAvailables(producstsAddeds) {
+    let newArray = [];
+    for (let i = 0; i < DataPlaticeros.length; i++) {
+        const data = DataPlaticeros[i];
+        let avaible = data.Available;
+        for (let j = 0; j < producstsAddeds.length; j++) {
+            const addeds = producstsAddeds[j];
+            if (data.Name == addeds.Name) {
+                avaible--;
             }
         }
+        let product = { Img: data.Img, Name: data.Name, Price: data.Price, Details: data.Details, Available: avaible, category: data.category, };
+        newArray.push(product);
     }
-    localStorage.removeItem('productsCheck');
+    return newArray;
 }
 
 let validatePrice = (getPrice, dataPrice) => { return dataPrice.Price <= getPrice };
@@ -171,7 +178,7 @@ function validations(list, getCategory, getPrice) {
 
 filter.addEventListener('click', () => {
     removeElementsCard();
-    createCard(filters(DataPlaticeros));
+    createCard(filters(allProducts));
 })
 
 function getCategories() {
