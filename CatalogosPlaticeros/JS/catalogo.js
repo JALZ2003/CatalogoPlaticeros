@@ -51,7 +51,7 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
     let card = '<img src="../assets/images/imagenesCatalogo/' + imgCard + '.png">\n' +
         '<div class="product-info">\n' +
         '<div>\n' +
-        '<p>' + "$" + priceCard + '.000' + '</p>\n' +
+        '<p>' + priceCard.toLocaleString(loadLocal(), loadCurrency())  + '</p>\n' +
         '<p>' + nameCard + '</p>\n' +
         '<p>' + "Available: " + availableCard + '</p>\n' +
         '<p>' + "Category: " + category + '</p>\n' +
@@ -72,7 +72,7 @@ function viewDestails(nameCard, imgCard, priceCard, availableCard, category, det
     let setImage = productDetailContainer.querySelector('.image');
     setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + imgCard + '.png');
     let setPrice = productDetailContainer.querySelector('.price');
-    setPrice.textContent = 'Price: $' + priceCard + '000';
+    setPrice.textContent = 'Price: ' + priceCard.toLocaleString(loadLocal(), loadCurrency()) ;
     let setName = productDetailContainer.querySelector('.name');
     setName.textContent = 'Name: ' + nameCard;
     let setDetails = productDetailContainer.querySelector('.details');

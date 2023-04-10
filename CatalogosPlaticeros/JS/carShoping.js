@@ -29,7 +29,7 @@ function creatProductCart(nameCard, imgCard, priceCard, position) {
 	shoppingCart.appendChild(name);
 
 	const price = document.createElement('p');
-	price.textContent = '$' + priceCard + '.000';
+	price.textContent = priceCard.toLocaleString(loadLocal(), loadCurrency());
 	shoppingCart.appendChild(price);
 
 	const closeButton = document.createElement('img');
@@ -45,10 +45,10 @@ function creatProductCart(nameCard, imgCard, priceCard, position) {
 
 function insertProductAddeds(Data) {
 	for (let i = 0; i < Data.length; i++) {
-		let product = creatProductCart(Data[i].Name, Data[i].Image, Data[i].Price, i);
+		let product = creatProductCart(Data[i].Name, Data[i].Image, parseInt(Data[i].Price), i);
 		container.appendChild(product);
 	}
-	total.textContent = '$' + operation + '.000';
+	total.textContent = operation.toLocaleString(loadLocal(), loadCurrency());
 }
 
 insertProductAddeds(productAddeds);
@@ -56,7 +56,7 @@ insertProductAddeds(productAddeds);
 function removeProduct(position, priceCard) {
 	console.log(operation, priceCard);
 	operation = 0;
-	total.textContent = '$' + operation + '.000';
+	total.textContent = operation.toLocaleString(loadLocal(), loadCurrency());
 	productAddeds.splice(position, 1);
 	countProducts.textContent = productAddeds.length;
 	removeElementsCart();
@@ -78,7 +78,7 @@ function checkButton() {
 	removeElementsCart();
 	for (let i = 0; i < productAddeds.length; i++) {
 		operation = 0;
-		total.textContent = '$' + operation + '.000';
+		total.textContent =  operation.toLocaleString(loadLocal(), loadCurrency());
 		countProducts.textContent = 0;
 		productAddeds.splice(i, 1);
 		i--;
