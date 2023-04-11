@@ -9,10 +9,6 @@ const countProducts = containerCount.querySelector('div');
 let operation = 0;
 let productAddeds = JSON.parse(localStorage.getItem('productAdded'));
 countProducts.textContent = productAddeds.length;
-let productsCheck = [];
-if (JSON.parse(localStorage.getItem('productsCheck')) != null) {
-	productsCheck = JSON.parse(localStorage.getItem('productsCheck'));
-}
 
 function creatProductCart(nameCard, imgCard, priceCard, position) {
 	const shoppingCart = document.createElement('div');
@@ -29,7 +25,7 @@ function creatProductCart(nameCard, imgCard, priceCard, position) {
 	shoppingCart.appendChild(name);
 
 	const price = document.createElement('p');
-	price.textContent = priceCard.toLocaleString(loadLocal(), loadCurrency());
+	price.textContent = priceCard.toLocaleString(loadLocal().split(',')[0], loadCurrency());
 	shoppingCart.appendChild(price);
 
 	const closeButton = document.createElement('img');
@@ -45,10 +41,11 @@ function creatProductCart(nameCard, imgCard, priceCard, position) {
 
 function insertProductAddeds(Data) {
 	for (let i = 0; i < Data.length; i++) {
-		let product = creatProductCart(Data[i].Name, Data[i].Image, parseInt(Data[i].Price), i);
+		let Product = DataPlaticeros.find(d => d.ID == parseInt(Data));
+		let product = creatProductCart(Product.Name, Product.Img, parseInt(Product.Price), i);
 		container.appendChild(product);
 	}
-	total.textContent = operation.toLocaleString(loadLocal(), loadCurrency());
+	total.textContent = operation.toLocaleString(loadLocal().split(',')[0], loadCurrency());
 }
 
 insertProductAddeds(productAddeds);
@@ -56,7 +53,7 @@ insertProductAddeds(productAddeds);
 function removeProduct(position, priceCard) {
 	console.log(operation, priceCard);
 	operation = 0;
-	total.textContent = operation.toLocaleString(loadLocal(), loadCurrency());
+	total.textContent = operation.toLocaleString(loadLocal().split(',')[0], loadCurrency());
 	productAddeds.splice(position, 1);
 	countProducts.textContent = productAddeds.length;
 	removeElementsCart();
@@ -78,7 +75,7 @@ function checkButton() {
 	removeElementsCart();
 	for (let i = 0; i < productAddeds.length; i++) {
 		operation = 0;
-		total.textContent =  operation.toLocaleString(loadLocal(), loadCurrency());
+		total.textContent =  operation.toLocaleString(loadLocal().split(',')[0], loadCurrency());
 		countProducts.textContent = 0;
 		productAddeds.splice(i, 1);
 		i--;

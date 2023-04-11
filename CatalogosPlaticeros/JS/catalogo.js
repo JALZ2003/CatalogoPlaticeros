@@ -14,13 +14,15 @@ let countProduct = sendArrayProductAdded.querySelector('div');
 let prductAded = [];
 
 let allProducts = DataPlaticeros;
+console.log(allProducts);
 
 if (JSON.parse(localStorage.getItem('productAdded')) != null) {
     prductAded = JSON.parse(localStorage.getItem('productAdded'));
-    allProducts = discountsAvailables(prductAded, allProducts);
+    allProducts = discountsAvailables(prductAded);
 }
 
 countProduct.textContent = prductAded.length;
+console.log(prductAded);
 
 let isUpward = () => { return JSON.parse(formSelectupward.value) };
 let isCategory = () => { return formSelectCategories.value != 'All' };
@@ -40,18 +42,18 @@ function createCard(Data) {
         const priceCard = Data[i].Price;
         const availableCard = Data[i].Available;
         const category = Data[i].category;
-        let card = cardProduct(nameCard, imgCard, priceCard, availableCard, category, Data[i].Details);
+        let card = cardProduct(Data[i].ID, nameCard, imgCard, priceCard, availableCard, category, Data[i].Details);
         cardsContainer.appendChild(card);
     }
 }
 
-function cardProduct(nameCard, imgCard, priceCard, availableCard, category, details) {
+function cardProduct(id, nameCard, imgCard, priceCard, availableCard, category, details) {
     let content = document.createElement('div');
     content.className = "product-card";
     let card = '<img src="../assets/images/imagenesCatalogo/' + imgCard + '.png">\n' +
         '<div class="product-info">\n' +
         '<div>\n' +
-        '<p>' + priceCard.toLocaleString(loadLocal(), loadCurrency())  + '</p>\n' +
+        '<p>' + priceCard.toLocaleString(loadLocal().split(',')[0], loadCurrency()) + '</p>\n' +
         '<p>' + nameCard + '</p>\n' +
         '<p>' + "Available: " + availableCard + '</p>\n' +
         '<p>' + "Category: " + category + '</p>\n' +
@@ -60,37 +62,39 @@ function cardProduct(nameCard, imgCard, priceCard, availableCard, category, deta
         '</div>\n';
     content.innerHTML += card;
     content.addEventListener('click', () => {
-        sessionStorage.setItem('Name', nameCard);
-        sessionStorage.setItem('Image', imgCard);
-        sessionStorage.setItem('Price', priceCard);
-        viewDestails(nameCard, imgCard, priceCard, availableCard, category, details);
+        if (availableCard != 'No Disponible') {
+            buttonAddedProductDetail.style.display = '';
+        } else {
+            buttonAddedProductDetail.style.display = 'none';
+        }
+        sessionStorage.setItem('id', id);
+        viewDestails(id);
+        openProductDetailAside();
     });
     return content;
 }
 
-function viewDestails(nameCard, imgCard, priceCard, availableCard, category, details) {
+function viewDestails(id) {
+    let product = allProducts.find(p => p.ID === id);
     let setImage = productDetailContainer.querySelector('.image');
-    setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + imgCard + '.png');
+    setImage.setAttribute('src', '../assets/images/imagenesCatalogo/' + product.Img + '.png');
     let setPrice = productDetailContainer.querySelector('.price');
-    setPrice.textContent = 'Price: ' + priceCard.toLocaleString(loadLocal(), loadCurrency()) ;
+    setPrice.textContent = 'Price: ' + product.Price.toLocaleString(loadLocal().split(',')[0], loadCurrency());
     let setName = productDetailContainer.querySelector('.name');
-    setName.textContent = 'Name: ' + nameCard;
+    setName.textContent = 'Name: ' + product.Name;
     let setDetails = productDetailContainer.querySelector('.details');
-    setDetails.textContent = details;
+    setDetails.textContent = product.Details;
     let setAvaible = productDetailContainer.querySelector('.avaible');
-    setAvaible.textContent = availableCard;
+    setAvaible.textContent = product.Available;
     let setCategory = productDetailContainer.querySelector('.category');
-    setCategory.textContent = 'Category: ' + category;
-    openProductDetailAside();
+    setCategory.textContent = 'Category: ' + product.category;
 }
 
 productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
 
 buttonAddedProductDetail.addEventListener('click', () => {
-    let Name = sessionStorage.getItem('Name');
-    let Image = sessionStorage.getItem('Image');
-    let Price = sessionStorage.getItem('Price');
-    addedProduct(Name, Image, Price);
+    let id = sessionStorage.getItem('id');
+    addedProduct(id);
 });
 
 sendArrayProductAdded.addEventListener('click', () => {
@@ -113,30 +117,44 @@ function closeProductDetailAside() {
     productDetailContainer.classList.add('inactive');
 }
 
-function addedProduct(nameCard, imgCard, priceCard) {
-    let product = { Name: nameCard, Image: imgCard, Price: priceCard };
-    prductAded.push(product);
+function addedProduct(id) {
+    prductAded.push(id);
     countProduct.textContent = prductAded.length;
     localStorage.setItem('productAdded', JSON.stringify(prductAded));
+    console.log(prductAded);
     removeElementsCard();
     createCard(filters(discountsAvailables(prductAded)));
 }
 
 function discountsAvailables(producstsAddeds) {
-    let newArray = [];
+    let newArrays = [];
     for (let i = 0; i < DataPlaticeros.length; i++) {
-        const data = DataPlaticeros[i];
-        let avaible = data.Available;
+        const product = DataPlaticeros[i];
+        let avaible = product.Available;
         for (let j = 0; j < producstsAddeds.length; j++) {
-            const addeds = producstsAddeds[j];
-            if (data.Name == addeds.Name) {
+            const added = producstsAddeds[j];
+            if (product.ID == added) {
                 avaible--;
+                if (avaible <= 0) {
+                    avaible = 'No Disponible';
+                    buttonAddedProductDetail.style.display = 'none';
+                }
+                let setAvaible = productDetailContainer.querySelector('.avaible');
+                setAvaible.textContent = avaible;
             }
         }
-        let product = { Img: data.Img, Name: data.Name, Price: data.Price, Details: data.Details, Available: avaible, category: data.category, };
-        newArray.push(product);
+        let newProduct = {
+            ID: product.ID,
+            Img: product.Img,
+            Name: product.Name,
+            Price: product.Price,
+            Details: product.Details,
+            Available: avaible,
+            category: product.category,
+        }
+        newArrays.push(newProduct);
     }
-    return newArray;
+    return newArrays;
 }
 
 let validatePrice = (getPrice, dataPrice) => { return dataPrice.Price <= getPrice };
@@ -190,6 +208,17 @@ function getCategories() {
         }
     }
     return categories;
+}
+
+function getIds(producstAddeds) {
+    let ids = [];
+    for (let i = 0; i < producstAddeds.length; i++) {
+        const element = producstAddeds[i];
+        if (!ids.includes(element)) {
+            ids.push(element);
+        }
+    }
+    return ids;
 }
 
 function insertCategory() {

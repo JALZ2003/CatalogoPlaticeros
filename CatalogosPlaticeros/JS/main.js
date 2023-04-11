@@ -1,6 +1,7 @@
 
 const DataPlaticeros = [
     {
+        ID: 1,
         Img: 17,
         Name: "Platycerium Superbum 1",
         Price: 150000,
@@ -10,6 +11,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 2,
         Img: 33,
         Name: "Platycerium Wallichii 1",
         Price: 130000,
@@ -19,6 +21,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 3,
         Img: 32,
         Name: "Platycerium Ridleyi",
         Price: 130000,
@@ -28,6 +31,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 4,
         Img: 31,
         Name: "Platycerium Madagascariense",
         Price: 130000,
@@ -37,6 +41,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 5,
         Img: 30,
         Name: "Platycerium Grande",
         Price: 130000,
@@ -46,6 +51,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 6,
         Img: 22,
         Name: "Platycerium Bifurcatum",
         Price: 60000,
@@ -55,6 +61,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 7,
         Img: 20,
         Name: "Platycerium Veitchii",
         Price: 100000,
@@ -64,6 +71,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 8,
         Img: 16,
         Name: "Platycerium superbum",
         Price: 150000,
@@ -73,6 +81,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 9,
         Img: 6,
         Name: "Platycerium Elephantotis",
         Price: 90000,
@@ -82,6 +91,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 10,
         Img: 4,
         Name: "Platycerium Dawboy",
         Price: 80000,
@@ -91,6 +101,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 11,
         Img: 14,
         Name: "Platycerium Stemaria",
         Price: 80000,
@@ -100,6 +111,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 12,
         Img: 3,
         Name: "Platycerium Coronarium",
         Price: 120000,
@@ -109,6 +121,7 @@ const DataPlaticeros = [
     },
 
     {
+        ID: 13,
         Img: 28,
         Name: "Platycerium Wandae",
         Price: 250000,
@@ -116,7 +129,9 @@ const DataPlaticeros = [
         Available: 10,
         category: "planta",
     },
+
     {
+        ID: 14,
         Img: 19,
         Name: "Platycerium Superbum",
         Price: 450000,
@@ -124,14 +139,19 @@ const DataPlaticeros = [
         Available: 8,
         category: "planta",
     },
+
     {
+        ID: 15,
         Img: 29,
         Name: "Platycerium Willinckii",
         Price: 150000,
         Details: "Canasta de alambre 30 cm, variaciones en precio segun tamaño",
         Available: 10,
         category: "planta",
-    },{
+    }, 
+    
+    {
+        ID: 16,
         Img: 10,
         Name: "Platycerium Hillii",
         Price: 150000,
@@ -139,7 +159,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "planta",
     },
+
     {
+        ID: 17,
         Img: 2,
         Name: "Platycerium Hillii/ Elephantotis",
         Price: 40000,
@@ -147,7 +169,9 @@ const DataPlaticeros = [
         Available: 10,
         category: "planta",
     },
+
     {
+        ID: 18,
         Img: 38,
         Name: "Fungicida organico",
         Price: 65000,
@@ -155,7 +179,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "producto organico",
     },
+
     {
+        ID: 19,
         Img: 38,
         Name: "Silicio soluble",
         Price: 50000,
@@ -163,7 +189,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "producto organico",
     },
+
     {
+        ID: 20,
         Img: 38,
         Name: "Insecticida organico",
         Price: 44000,
@@ -171,7 +199,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "producto organico",
     },
+
     {
+        ID: 21,
         Img: 38,
         Name: "Fertilizante organico",
         Price: 75000,
@@ -179,7 +209,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "producto organico",
     },
+
     {
+        ID: 22,
         Img: 39,
         Name: "Esporas P. Superbum",
         Price: 10000,
@@ -187,7 +219,9 @@ const DataPlaticeros = [
         Available: 20,
         category: "esporas",
     },
+
     {
+        ID: 23,
         Img: 40,
         Name: "Esporas P. Coronarium",
         Price: 10000,
@@ -225,9 +259,11 @@ function loadCurrency() {
         currency: localStorage.getItem('currency'),
         currencyDisplay: 'symbol'
     }
-    
+
 }
 
 function loadLocal() {
     return localStorage.getItem('local');
 }
+
+// console.log(loadCurrency(), loadLocal());
